@@ -1,4 +1,6 @@
 # jiagu_aes_project
+
+## 生成 dll 方式一：
 APK加固使用的C++工程，编译可生成dll库
 
 开发工具：Visual Studio 2022 
@@ -11,3 +13,8 @@ APK加固使用的C++工程，编译可生成dll库
 
 步骤二：选中【jiagu_aes_project】-右键-【生成】，等编译完成，会在工程目录中生成【x64】-【Debug】-【jiagu_aes_project.dll】文件。
 ![image.png](https://upload-images.jianshu.io/upload_images/13549630-a4dd8087d144a9c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+## 生成 dll 方式二：
+
+1. 先安装 windows 版本的 gcc
+2. cpp 目录下执行 gcc -shared -o sx_jiagu.dll xxtea.c AESUtil.cpp 若缺头文件可后面跟 -I xxxx/includPath
