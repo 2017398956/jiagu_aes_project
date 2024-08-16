@@ -12,11 +12,11 @@ extern "C" {
 
 
 /*
- * Class:     com_zhh_jiagu_shell_util_AESUtil
+ * Class:     personal_nfl_protect_lib_util_AESUtil
  * Method:    encrypt
  * Signature: ([B)[B
  */
-JNIEXPORT jbyteArray JNICALL Java_com_zhh_jiagu_shell_util_AESUtil_encrypt
+JNIEXPORT jbyteArray JNICALL Java_personal_nfl_protect_lib_util_AESUtil_encrypt
         (JNIEnv *env, jclass clazz, jbyteArray data){
 
     //jbyteArray 转换成byte*
@@ -25,7 +25,7 @@ JNIEXPORT jbyteArray JNICALL Java_com_zhh_jiagu_shell_util_AESUtil_encrypt
     jsize dataSize = env->GetArrayLength(data);
     //LOGD(TAG,"data size----%d",dataSize);
     //printf("==========>data size----%d\n", dataSize);
-    const char *key = "zhh_jiagu_gfdec";
+    const char *key = "personal_nfl_protect_app";
     size_t len;
     
     jbyte * encrypt_data = (jbyte*)xxtea_encrypt(dataBuff,dataSize,key,&len);
@@ -43,11 +43,11 @@ JNIEXPORT jbyteArray JNICALL Java_com_zhh_jiagu_shell_util_AESUtil_encrypt
 }
 
 /*
- * Class:     com_zhh_jiagu_shell_util_AESUtil
+ * Class:     personal_nfl_protect_lib_util_AESUtil
  * Method:    decrypt
  * Signature: ([B)[B
  */
-JNIEXPORT jbyteArray JNICALL Java_com_zhh_jiagu_shell_util_AESUtil_decrypt
+JNIEXPORT jbyteArray JNICALL Java_personal_nfl_protect_lib_util_AESUtil_decrypt
         (JNIEnv *env, jclass clazz, jbyteArray data){
     // 将jbyteArray转换成byte*
     jboolean isCopy = false;
@@ -57,7 +57,7 @@ JNIEXPORT jbyteArray JNICALL Java_com_zhh_jiagu_shell_util_AESUtil_decrypt
    // LOGD(TAG,"data size ==== %d",dataSize);
     
     //decrypt
-    const char *key = "zhh_jiagu_gfdec";
+    const char *key = "personal_nfl_protect_app";
     size_t len;
     jbyte *decrypt_data = (jbyte*)xxtea_decrypt(dataBuff,dataSize,key,&len);
     env->ReleaseByteArrayElements(data,decrypt_data, isCopy);
